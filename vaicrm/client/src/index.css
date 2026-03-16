@@ -1,0 +1,519 @@
+@import "primeicons/primeicons.css";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+/* Mobile-First Enhancements */
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+.scrollbar-thin {
+  scrollbar-width: thin;
+}
+
+.scrollbar-thin::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+.scrollbar-thumb-gray-300::-webkit-scrollbar-thumb {
+  background-color: #d1d5db;
+  border-radius: 3px;
+}
+
+.scrollbar-track-gray-100::-webkit-scrollbar-track {
+  background-color: #f3f4f6;
+}
+
+.touch-manipulation {
+  touch-action: manipulation;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+/* Mobile tap highlights */
+@media (max-width: 768px) {
+  * {
+    -webkit-tap-highlight-color: transparent;
+  }
+  
+  button, .cursor-pointer {
+    -webkit-tap-highlight-color: rgba(59, 130, 246, 0.1);
+  }
+}
+
+/* Enhanced Search Bar Styles */
+.search-bar-container {
+  background: linear-gradient(145deg, #f8fafc 0%, #f1f5f9 100%);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.search-bar-container:focus-within {
+  background: linear-gradient(145deg, #ffffff 0%, #fafbff 100%);
+  box-shadow: 0 10px 25px -3px rgba(27, 87, 164, 0.1), 0 4px 6px -2px rgba(27, 87, 164, 0.05);
+  transform: translateY(-1px);
+}
+
+.search-results-dropdown {
+  backdrop-filter: blur(20px);
+  background: rgba(255, 255, 255, 0.95);
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+  border: 1px solid rgba(27, 87, 164, 0.1);
+}
+
+.search-item {
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.search-item:hover {
+  transform: translateX(2px);
+  box-shadow: 0 4px 12px -2px rgba(27, 87, 164, 0.15);
+}
+
+.search-category-badge {
+  position: relative;
+  overflow: hidden;
+}
+
+.search-category-badge::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+  transition: left 0.5s;
+}
+
+.search-category-badge:hover::before {
+  left: 100%;
+}
+
+
+:root {
+  --background: hsl(0, 0%, 100%);
+  --foreground: hsl(222, 84%, 4.9%);
+  --muted: hsl(210, 40%, 96%);
+  --muted-foreground: hsl(215.4, 16.3%, 46.9%);
+  --popover: hsl(0, 0%, 100%);
+  --popover-foreground: hsl(222, 84%, 4.9%);
+  --card: hsl(0, 0%, 100%);
+  --card-foreground: hsl(222, 84%, 4.9%);
+  --border: hsl(214.3, 31.8%, 91.4%);
+  --input: hsl(214.3, 31.8%, 91.4%);
+  --primary: hsl(219, 72%, 37%);
+  --primary-foreground: hsl(210, 40%, 98%);
+  --secondary: hsl(219, 72%, 95%);
+  --secondary-foreground: hsl(219, 72%, 25%);
+  --accent: hsl(219, 72%, 95%);
+  --accent-foreground: hsl(219, 72%, 25%);
+  --destructive: hsl(0, 84.2%, 60.2%);
+  --destructive-foreground: hsl(210, 40%, 98%);
+  --ring: hsl(219, 72%, 37%);
+  --radius: 0.5rem;
+  
+  /* AZAM TV Brand Colors - Updated to new scheme */
+  --azam-orange: #e67c1a;
+  --azam-orange-light: #F2A85A;
+  --azam-orange-dark: #CC6A14;
+  --azam-blue: #304454;
+  --azam-blue-light: #5AADD1;
+  --azam-blue-dark: #1A7291;
+  --azam-header: #282c3c;
+  --azam-header-light: #2A2F5F;
+  --azam-header-dark: #12153A;
+  --azam-green: hsl(158, 64%, 52%);
+  --azam-red: hsl(0, 84%, 60%);
+  --azam-dark: hsl(217, 19%, 27%);
+  --azam-light: hsl(210, 20%, 98%);
+  
+  /* Update primary colors to match new scheme */
+  --primary: #e67c1a;
+  --primary-foreground: hsl(0, 0%, 100%);
+  --border: #238fb7;
+  --input: #238fb7;
+  --ring: #e67c1a;
+  
+  /* SAP-like Design System - Updated to new colors */
+  --sap-orange: #e67c1a;
+  --sap-blue: #238fb7;
+  --sap-header: #181c4c;
+  --sap-light-blue: #E6F5FA;
+  --sap-gray: #f5f5f5;
+  --sap-dark-gray: #666;
+  --sap-border: #188DB9;
+  --sap-text: #333;
+  --sap-hover: #f0f0f0;
+}
+
+.dark {
+  --background: hsl(222.2, 84%, 4.9%);
+  --foreground: hsl(210, 40%, 98%);
+  --muted: hsl(217.2, 32.6%, 17.5%);
+  --muted-foreground: hsl(215, 20.2%, 65.1%);
+  --popover: hsl(222.2, 84%, 4.9%);
+  --popover-foreground: hsl(210, 40%, 98%);
+  --card: hsl(222.2, 84%, 4.9%);
+  --card-foreground: hsl(210, 40%, 98%);
+  --border: hsl(217.2, 32.6%, 17.5%);
+  --input: hsl(217.2, 32.6%, 17.5%);
+  --primary: hsl(219, 72%, 37%);
+  --primary-foreground: hsl(210, 40%, 98%);
+  --secondary: hsl(217.2, 32.6%, 17.5%);
+  --secondary-foreground: hsl(210, 40%, 98%);
+  --accent: hsl(217.2, 32.6%, 17.5%);
+  --accent-foreground: hsl(210, 40%, 98%);
+  --destructive: hsl(0, 62.8%, 30.6%);
+  --destructive-foreground: hsl(210, 40%, 98%);
+  --ring: hsl(219, 72%, 37%);
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply font-sans antialiased bg-background text-foreground;
+  }
+  
+  /* Responsive base font size that adapts to screen size and zoom */
+  html {
+    font-size: 14px;
+  }
+  
+  @media (min-width: 640px) {
+    html {
+      font-size: 16px;
+    }
+  }
+  
+  @media (min-width: 1024px) {
+    html {
+      font-size: 16px;
+    }
+  }
+  
+  /* Make elements scale better with zoom */
+  .responsive-scale {
+    transform-origin: top left;
+  }
+  
+  /* Ensure minimum readable text sizes */
+  .min-text-sm {
+    font-size: max(0.875rem, 12px);
+  }
+  
+  .min-text-base {
+    font-size: max(1rem, 14px);
+  }
+}
+
+@layer components {
+  .btn-primary {
+    background-color: var(--azam-orange);
+    color: white;
+    font-weight: 500;
+    padding: 0.5rem 1rem;
+    border-radius: 0.375rem;
+    transition: background-color 0.2s;
+  }
+  
+  .btn-primary:hover {
+    background-color: var(--azam-orange-dark);
+  }
+  
+  .btn-secondary {
+    background-color: var(--azam-orange-light);
+    color: var(--azam-orange);
+    font-weight: 500;
+    padding: 0.5rem 1rem;
+    border-radius: 0.375rem;
+    transition: background-color 0.2s;
+  }
+  
+  .text-azam-primary {
+    color: var(--azam-orange);
+  }
+  
+  .bg-azam-primary {
+    background-color: var(--azam-orange);
+  }
+  
+  .border-azam-primary {
+    @apply border-azam-blue;
+  }
+}
+
+/* Custom AZAM TV styles */
+.azam-gradient {
+  background: linear-gradient(135deg, var(--azam-blue), var(--azam-green));
+}
+
+.nav-link.active {
+  @apply text-white;
+  background-color: var(--azam-blue);
+}
+
+.nav-link {
+  @apply text-gray-600 hover:bg-gray-100 hover:text-gray-900;
+}
+
+.kpi-card {
+  @apply bg-white rounded-xl shadow-sm p-6 border;
+}
+
+.kpi-card.blue {
+  border-left: 4px solid var(--azam-blue);
+}
+
+.kpi-card.green {
+  border-left: 4px solid var(--azam-green);
+}
+
+.kpi-card.yellow {
+  border-left: 4px solid hsl(45, 93%, 47%);
+}
+
+.kpi-card.red {
+  border-left: 4px solid var(--azam-red);
+}
+
+.btn-primary {
+  @apply text-white hover:bg-blue-700 transition-colors;
+  background-color: var(--azam-blue);
+}
+
+.btn-primary:hover {
+  background-color: hsl(221, 83%, 45%);
+}
+
+.status-badge.available {
+  @apply bg-blue-100 text-blue-800;
+}
+
+.status-badge.reserved {
+  @apply bg-yellow-100 text-yellow-800;
+}
+
+.status-badge.sold {
+  @apply bg-red-100 text-red-800;
+}
+
+.status-badge.active {
+  @apply bg-green-100 text-green-800;
+}
+
+.status-badge.new {
+  @apply bg-green-100 text-green-800;
+}
+
+.status-badge.used {
+  @apply bg-yellow-100 text-yellow-800;
+}
+
+.status-badge.good {
+  @apply bg-green-100 text-green-800;
+}
+
+.status-badge.low {
+  @apply bg-yellow-100 text-yellow-800;
+}
+
+.status-badge.critical {
+  @apply bg-red-100 text-red-800;
+}
+
+/* SAP-Style Module Cards */
+.sap-module-card {
+  @apply bg-white rounded-lg border border-gray-200 p-6 hover:shadow-md transition-shadow cursor-pointer;
+  min-height: 140px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.sap-module-card:hover {
+  background-color: var(--sap-hover);
+}
+
+.sap-module-card .icon {
+  @apply w-8 h-8 text-gray-600 mb-3;
+}
+
+.sap-module-card .title {
+  @apply text-sm font-medium text-gray-900 leading-tight;
+  line-height: 1.3;
+}
+
+.sap-module-card .subtitle {
+  @apply text-xs text-gray-500 mt-1;
+}
+
+.sap-module-grid {
+  @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4;
+}
+
+.sap-header {
+  @apply bg-white border-b border-gray-200 px-6 py-4;
+}
+
+.sap-header .nav-tabs {
+  @apply flex space-x-8;
+}
+
+.sap-header .nav-tab {
+  @apply text-sm font-medium text-gray-500 hover:text-gray-700 pb-2 border-b-2 border-transparent hover:border-gray-300;
+}
+
+.sap-header .nav-tab.active {
+  @apply text-blue-600 border-blue-600;
+}
+
+.sap-content {
+  @apply p-6 bg-gray-50 min-h-screen;
+}
+
+.sap-breadcrumb {
+  @apply text-sm text-gray-500 mb-4;
+}
+
+.sap-breadcrumb a {
+  @apply text-blue-600 hover:text-blue-800;
+}
+
+.sap-warning-card {
+  @apply bg-yellow-50 border border-yellow-200 rounded-lg p-4 mb-4;
+}
+
+.sap-warning-card .icon {
+  @apply w-5 h-5 text-yellow-600;
+}
+
+.sap-warning-card .title {
+  @apply text-sm font-medium text-yellow-800;
+}
+
+.sap-warning-card .subtitle {
+  @apply text-xs text-yellow-700;
+}
+
+/* Mobile responsive utilities */
+@media (max-width: 640px) {
+  .mobile-card {
+    padding: 1rem;
+    margin: 0.5rem 0;
+    border-radius: 0.5rem;
+    background: white;
+    border: 1px solid #e5e7eb;
+  }
+  
+  .mobile-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.75rem;
+  }
+  
+  .mobile-full-width {
+    width: 100% !important;
+  }
+  
+  .mobile-text-sm {
+    font-size: 0.875rem;
+  }
+  
+  .mobile-px-2 {
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+  }
+
+  /* Mobile navigation improvements */
+  .mobile-nav-subtitle {
+    font-size: 0.75rem;
+    line-height: 1.2;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    hyphens: auto;
+  }
+  
+  .mobile-nav-item {
+    min-height: auto;
+    padding: 0.625rem;
+  }
+  
+  .mobile-nav-expanded {
+    margin-left: 1rem;
+    padding-left: 0.75rem;
+    border-left: 2px solid #f3f4f6;
+  }
+  
+  .sap-module-grid {
+    @apply grid-cols-2;
+  }
+  
+  .sap-module-card {
+    min-height: 120px;
+    padding: 1rem;
+  }
+  
+  .sap-module-card .icon {
+    @apply w-6 h-6 mb-2;
+  }
+  
+  .sap-module-card .title {
+    @apply text-xs;
+  }
+  
+  .sap-module-card .subtitle {
+    @apply text-xs;
+  }
+  
+  /* Mobile table styling */
+  .mobile-table-card {
+    background: white;
+    border: 1px solid #e5e7eb;
+    border-radius: 0.5rem;
+    padding: 1rem;
+    margin-bottom: 0.75rem;
+  }
+  
+  .mobile-table-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+    font-size: 0.875rem;
+  }
+  
+  .mobile-table-content {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    font-size: 0.75rem;
+    color: #6b7280;
+  }
+}
+
+@layer utilities {
+  .border-l-3 {
+    border-left-width: 3px;
+  }
+  
+  .submenu-highlight {
+    @apply bg-gradient-to-r from-green-100 to-green-50 border-l-3 border-green-500 text-green-800 shadow-md;
+  }
+  
+  .submenu-highlight-blue {
+    @apply bg-gradient-to-r from-blue-100 to-blue-50 border-l-3 border-blue-500 text-blue-800 shadow-md;
+  }
+}
