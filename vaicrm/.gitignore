@@ -1,0 +1,11 @@
+node_modules/
+dist/
+.env
+.env.local
+.DS_Store
+*.log
+audit.json
+VAI_CRM_BACKUP.zip
+client/src/components.zip
+VAI 360.zip
+VAI_360.zip
